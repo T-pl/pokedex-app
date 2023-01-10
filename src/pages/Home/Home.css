@@ -1,9 +1,25 @@
-header {
-	width: 100vw;
-	background: #000;
+main {
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 15px;
-	color: #fff;
+	margin: 100px 0;
+}
+
+main .right-side {
+	width: 700px;
+}
+main .right-side h1 {
+	margin-bottom: 50px;
+}
+
+main .left-side img {
+	width: 600px;
+	height: 600px;
+}
+
+@media (max-width: 700px) {
+	main .right-side {
+		width: 100%;
+	}
+	main .left-side {
+		display: none;
+	}
 }

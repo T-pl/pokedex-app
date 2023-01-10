@@ -1,29 +1,36 @@
-// import React, { useEffect } from 'react'
+import { Button, Container } from '@mui/material'
 import Navbar from '../../components/Navbar/Navbar'
-// import PokemonCard from '../../components/PokemonCard/PokemonsCard'
-// import Axios from 'axios';
-// import { useState } from 'react';
+import './Home.css'
+import Banner from '../../assets/pikachu-banner.png'
+import { Link } from 'react-router-dom'
+
 
 export default function Home() {
-  // const [pokemons, setPokemons] = useState([]);
-  // useEffect(() => {
-  //   getPokemons();
-  // }, []);
-  // const getPokemons = () => {
-  //   Axios.get("https://pokeapi.co/api/v2/pokemon?limit=50")
-  //     .then((res) => setPokemons(res.data.results))
-  //     .catch((error) => console.log(error))
-  // }
+
   return (
     <div>
       <Navbar />
-      {/* {pokemons.map((pokemon, key) => (
-        <PokemonCard
-          key={key}
-          name={pokemon.name}
-        />
-      ))} */}
+      <Container maxWidth="xl">
+        <main>
+          <div className='right-side'>
+            <h1>Encontre os seus <b>Pokémons</b> preferidos!</h1>
+            <p>Conheça os diferentes tipos de Pokémons, suas habilidades e muito mais.</p>
+            <Button variant="contained">
+              <Link
+                to={'/pokemons'}
+                style={{ color: '#fff', textDecoration: 'none' }}
+              >
+                Encontrar Pokémons
+              </Link>
+            </Button>
+          </div>
+          <div className='left-side'>
+            <img src={Banner} alt="Banner Pikachu" />
+          </div>
+        </main>
 
+
+      </Container>
     </div>
   )
 }

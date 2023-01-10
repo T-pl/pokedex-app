@@ -21,12 +21,12 @@ export default function PokemonPage() {
   return (
     <>
       <Navbar />
-      <Container maxWidth="xg">
+      <Container maxWidth="xl">
         <div id="searchPokemons">
           <h2>Diversos <b>Pokémons</b> para você escolher o seu favorito!</h2>
           <input type="text" placeholder='Encontre seu Pokemon' />
         </div>
-        <Grid container gap={3}>
+        <Grid container gap={4}>
           {pokemons.map((pokemon, key) => {
             return (
               <Grid item xs={3}>
