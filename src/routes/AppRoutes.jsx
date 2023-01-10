@@ -8,7 +8,7 @@ export function AppRoutes() {
     <>
       <Router>
         <Routes>
-          <Route exact path='/home' element={<Home />} />
+          <Route path='/home' element={<Home />} />
         </Routes>
         <Routes>
           <Route path='pokemons' element={<PokemonPage />} />
