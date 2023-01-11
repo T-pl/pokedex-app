@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/github.io.pokedex-app/static/css/main.b0409af6.css",
+    "main.js": "/github.io.pokedex-app/static/js/main.f0503de1.js",
+    "static/js/787.d2388226.chunk.js": "/github.io.pokedex-app/static/js/787.d2388226.chunk.js",
+    "static/media/pikachu-banner.png": "/github.io.pokedex-app/static/media/pikachu-banner.96b26b5176765845c148.png",
+    "index.html": "/github.io.pokedex-app/index.html",
+    "main.b0409af6.css.map": "/github.io.pokedex-app/static/css/main.b0409af6.css.map",
+    "main.f0503de1.js.map": "/github.io.pokedex-app/static/js/main.f0503de1.js.map",
+    "787.d2388226.chunk.js.map": "/github.io.pokedex-app/static/js/787.d2388226.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b0409af6.css",
+    "static/js/main.f0503de1.js"
+  ]
+}
