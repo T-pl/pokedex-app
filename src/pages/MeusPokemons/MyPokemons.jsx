@@ -5,7 +5,7 @@ export default function MyPokemons() {
   return (
     <>
       <Navbar />
-      Meus Pokemons Works!
+      <h1 style={{ textAlign: 'center' }} >EM DESENVOLVIMENTO</h1>
     </>
   )
 }

@@ -7,37 +7,27 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from 'react-router-dom';
 import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
-import './Navbar.css'
-const pages = ['home', 'pokemons', 'meuspokemons'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+import { Link } from 'react-router-dom';
+
+// const pages = ['Products', 'Pricing', 'Blog'];
 
 export default function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
 
   return (
-    <AppBar position="static" style={{ background: '#00264b' }}>
+    <AppBar position="static" style={{ background: '#F2B807' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CatchingPokemonIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -45,13 +35,12 @@ export default function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/home"
+            href="/"
             sx={{
-              mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -88,78 +77,69 @@ export default function Navbar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              <MenuItem display='flex' flexDirection='column' onClick={handleCloseNavMenu}>
+                <Link style={{ color: '#000', textDecoration: 'none' }} to='/'>
                   <Typography textAlign="center">
-                    <Link className='link-style' style={{ textDecoration: "none", color: "#fff" }} to={`/${page}`}>
-                      {page}
-                    </Link>
+                    Home
                   </Typography>
-                </MenuItem>
-              ))}
+                </Link>
+                <Link style={{ color: '#000', textDecoration: 'none' }} to='/pokemons'>
+                  <Typography textAlign="center">
+                    Pokémons
+                  </Typography>
+                </Link>
+                <Link style={{ color: '#000', textDecoration: 'none' }} to='/favoritos'>
+                  <Typography textAlign="center">
+                    Favoritos
+                  </Typography>
+                </Link>
+              </MenuItem>
             </Menu>
-            <CatchingPokemonIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           </Box>
+          <CatchingPokemonIcon sx={{ display: { xs: 'flex', md: 'none' } }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
-              mr: 2,
+              // mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'roboto',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            POKEDEX!
+            Pokedex!
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Link className='link-style' style={{ textDecoration: "none", color: "#fff" }} to={`/${page}`}>
-                  {page}
-                </Link>
-              </Button>
-            ))}
-          </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
+          <Box style={{ marginLeft: '700px', gap: '25px' }} sx={{ flexGrow: 3, display: { xs: 'none', md: 'flex' } }}>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+              <Link style={{ color: '#fff', textDecoration: 'none' }} to='/'>
+                Home
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              <Link style={{ color: '#fff', textDecoration: 'none' }} to='/pokemons'>
+                Pokémons
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+              <Link style={{ color: '#fff', textDecoration: 'none' }} to='/favoritos'>
+                Favoritos
+              </Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>
@@ -168,69 +148,5 @@ export default function Navbar() {
 }
 
 
-
-
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// import logo from '../../assets/logo.png'
-// import './Navbar.css'
-// import { AppBar, Tab, Tabs, Toolbar } from '@mui/material';
-// import CatchingPokemonIcon from '@mui/icons-material/CatchingPokemon';
-
-// function Navbar() {
-//   return (
-//     <>
-//       <AppBar sx={{ background: "#00264b" }} >
-//         <Toolbar>
-//           <CatchingPokemonIcon />
-//           <ul>
-//             <li>
-//               <Link to="/" className='links-nav'>
-//                 Home
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/pokemons" className='links-nav'>
-//                 Pokedex
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/meuspokemons" className='links-nav'>
-//                 Raridades
-//               </Link>
-//             </li>
-//           </ul>
-//         </Toolbar>
-//       </AppBar>
-//       {/* <header>
-//         <Link to="/">
-//           <img src={logo} alt="Logo Viptech" />
-//         </Link>
-//         <nav>
-//           <ul>
-//             <li>
-//               <Link to="/" className='links-nav'>
-//                 Home
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/pokemons" className='links-nav'>
-//                 Pokedex
-//               </Link>
-//             </li>
-//             <li>
-//               <Link to="/meuspokemons" className='links-nav'>
-//                 Raridades
-//               </Link>
-//             </li>
-//           </ul>
-//         </nav>
-//       </header> */}
-//     </>
-//   )
-// }
-
-// export default Navbar
 
 

@@ -1,32 +1,50 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import InfoIcon from '@mui/icons-material/Info';
+import { CardActionArea, Typography } from '@mui/material';
 
-export default function PokemonCard({ name }) {
+
+
+export default function PokemonCard(props) {
+
+  const navigate = useNavigate();
+  function showPokemonDetails() {
+    navigate(`/detalhes/${props.name}`);
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {name}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Mais Detalhes</Button>
-      </CardActions>
-    </Card>
+    <>
+      <Card sx={{ maxWidth: 345 }} >
+        <CardActionArea>
+          <CardHeader
+            action={
+              <IconButton aria-label="settings">
+                <InfoIcon onClick={showPokemonDetails} />
+              </IconButton>
+            }
+            title={capitalizeFirstLetter(props.name)}
+          />
+          {props.image ? <img width='100%' src={props.image} alt={props.name} /> : console.log(props.image)}
+          <CardActions disableSpacing>
+            <IconButton aria-label="add to favorites">
+              <FavoriteIcon color='error' />
+            </IconButton>
+            <Typography>
+              Tipo: {props.types ? props.types.map((type) => type.type.name.replace(/^./, (str) => str.toUpperCase())) : null}
+            </Typography>
+          </CardActions>
+        </CardActionArea>
+      </Card>
+    </>
   );
 }
 

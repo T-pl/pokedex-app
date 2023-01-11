@@ -1,0 +1,8 @@
+#image-details {
+	max-width: 100%;
+	height: auto;
+	padding-top: 15px;
+	margin: 0 auto;
+	border: 1px solid #f2b807 !important;
+	border-radius: 12px;
+}

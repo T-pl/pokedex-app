@@ -1,9 +1,6 @@
-header {
-	width: 100vw;
-	background: #000;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 15px;
-	color: #fff;
+img {
+	max-width: 100%;
+	height: auto;
+	padding-top: 15px;
+	margin: 0 auto;
 }
