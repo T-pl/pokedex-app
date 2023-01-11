@@ -27,7 +27,7 @@ export default function PokemonDetails() {
               {selectPokemonDetail.sprites ? <img id='image-details'
                 width='100%' src={selectPokemonDetail.sprites.front_default} alt={name} /> : null}
             </Grid>
-            <Grid item xs={12} lg={5} ml={5}>
+            <Grid border="1px solid grey" borderRadius="8px" pl={2} item xs={12} lg={5} mt={1}>
               <Box display='flex' flex-direction='row' gap={1}>
                 <Typography variant='h4'>
                   {selectPokemonDetail.name}
