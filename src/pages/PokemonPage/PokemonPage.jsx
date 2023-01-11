@@ -24,6 +24,8 @@ export default function PokemonPage(props) {
               return {
                 name: pokemon.name,
                 image: res.data.sprites.front_default,
+                types: res.data.types,
+                species: pokemon.species
               }
             })
         })
@@ -58,6 +60,8 @@ export default function PokemonPage(props) {
                     <PokemonCard
                       name={pokemon.name}
                       image={pokemon.image}
+                      types={pokemon.types}
+                      species={pokemon.species}
                     />
                   </>
                 </Grid>
